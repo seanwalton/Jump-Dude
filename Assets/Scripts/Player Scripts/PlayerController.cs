@@ -5,11 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float jumpVelocity;
+    private Rigidbody2D rb2;
+    private Vector2 velocity;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        
+        rb2 = GetComponent<Rigidbody2D>();
+        velocity = new Vector2();
     }
 
     // Update is called once per frame
@@ -22,9 +25,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Jump()
-    {
-        Rigidbody2D rb2 = GetComponent<Rigidbody2D>();
-        Vector2 velocity = rb2.velocity;
+    {     
+        velocity = rb2.velocity;
         velocity.y += jumpVelocity;
         rb2.velocity = velocity;
     }
