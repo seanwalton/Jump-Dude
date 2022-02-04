@@ -6,6 +6,8 @@ public class TriggerCount : MonoBehaviour
 {
     private List<GameObject> Colliders = new List<GameObject>();
 
+    public int NumberOfObjects => Colliders.Count;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!Colliders.Contains(collision.gameObject)) Colliders.Add(collision.gameObject);
@@ -15,4 +17,6 @@ public class TriggerCount : MonoBehaviour
     {
         if (Colliders.Contains(collision.gameObject)) Colliders.Remove(collision.gameObject);
     }
+
+
 }

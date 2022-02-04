@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpUpTime;
     [SerializeField] private float jumpDistance;
     [SerializeField] private float fallGravityMultiplier;
+    [SerializeField] private TriggerCount groundCheck;
+
     private Rigidbody2D rb2;
     private Vector2 velocity;
     private float jumpVelocity;
@@ -49,7 +51,8 @@ public class PlayerController : MonoBehaviour
         CheckAndSetGravity();
     }
     private void Jump()
-    {     
+    {
+        if (groundCheck.NumberOfObjects == 0) return;
         velocity = rb2.velocity;
         velocity.y = jumpVelocity;
         rb2.velocity = velocity;

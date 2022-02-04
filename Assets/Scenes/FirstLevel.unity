@@ -2306,6 +2306,7 @@ MonoBehaviour:
   jumpUpTime: 0.5
   jumpDistance: 5
   fallGravityMultiplier: 2
+  groundCheck: {fileID: 1126479986}
 --- !u!1001 &1534468118
 PrefabInstance:
   m_ObjectHideFlags: 0
