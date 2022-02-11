@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float fallGravityMultiplier;
     [SerializeField] private TriggerCount groundCheck;
     [SerializeField] private int numberJumps;
+    [SerializeField] private UnityEvent OnJump;
 
     private Rigidbody2D rb2;
     private Vector2 velocity;
@@ -84,6 +85,7 @@ public class PlayerController : MonoBehaviour
         velocity = rb2.velocity;
         velocity.y = jumpVelocity;
         rb2.velocity = velocity;
+        OnJump?.Invoke();
     }
 
     private void Move()
