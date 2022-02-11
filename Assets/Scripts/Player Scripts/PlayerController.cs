@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpDistance;
     [SerializeField] private float fallGravityMultiplier;
     [SerializeField] private TriggerCount groundCheck;
+    [SerializeField] private int numberJumps;
 
     private Rigidbody2D rb2;
     private Vector2 velocity;
@@ -17,12 +19,31 @@ public class PlayerController : MonoBehaviour
     private float runVelocity;
     private float gravityUp;
     private float gravityDown;
+    private int numberJumpsSinceGrounded;
+    private bool onGround;
 
     private void Awake()
     {
         rb2 = GetComponent<Rigidbody2D>();
         velocity = new Vector2();
         CalculateConstants();
+    }
+
+    private void Start()
+    {
+        onGround = (groundCheck.NumberOfObjects > 0);
+    }
+
+    public void HitGround()
+    {
+        onGround = true;
+        numberJumpsSinceGrounded = 0;
+    }
+
+    public void LeftGround()
+    {
+        onGround = false;
+        numberJumpsSinceGrounded = 1;
     }
 
     private void CalculateConstants()
@@ -55,7 +76,11 @@ public class PlayerController : MonoBehaviour
     }
     private void Jump()
     {
-        if (groundCheck.NumberOfObjects == 0) return;
+
+        if ((!onGround) && (numberJumpsSinceGrounded >= numberJumps)) return;
+
+        numberJumpsSinceGrounded++;
+
         velocity = rb2.velocity;
         velocity.y = jumpVelocity;
         rb2.velocity = velocity;
