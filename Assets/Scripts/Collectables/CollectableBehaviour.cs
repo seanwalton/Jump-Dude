@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class CollectableBehaviour : MonoBehaviour
 {
+    [SerializeField] private bool DisableOnCollect;
     public UnityEvent OnCollect;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -12,7 +13,7 @@ public class CollectableBehaviour : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerController>())
         {
             OnCollect?.Invoke();
-            gameObject.SetActive(false);
+            if (DisableOnCollect) gameObject.SetActive(false);
         }
     }
 }
