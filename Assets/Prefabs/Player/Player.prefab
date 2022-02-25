@@ -97,6 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 138e2fe5854643046a64231aee3b2cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layersToTrigger:
+    serializedVersion: 2
+    m_Bits: 128
   OnFirstEnterTrigger:
     m_PersistentCalls:
       m_Calls:
@@ -197,6 +200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 138e2fe5854643046a64231aee3b2cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layersToTrigger:
+    serializedVersion: 2
+    m_Bits: 128
   OnFirstEnterTrigger:
     m_PersistentCalls:
       m_Calls:
@@ -410,6 +416,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   wallCheck: {fileID: 3795278315859371337}
+  wallLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!95 &2091239461676759647
 Animator:
   serializedVersion: 3

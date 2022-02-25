@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int numberJumps;
     [SerializeField] private UnityEvent OnJump;
     [SerializeField] private TriggerCount wallCheck;
+    [SerializeField] private LayerMask wallLayers;
 
     private Rigidbody2D rb2;
     private Vector2? dirToWall;
