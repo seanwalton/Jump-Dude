@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class DifficultyManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject[] guns;
+
+    private List<GameObject> inactiveGuns = new List<GameObject>();
+    private int gunToActivate;
+
+    private void Awake()
     {
-        
+        inactiveGuns.AddRange(guns);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void IncreaseDifficulty()
     {
-        
+        if (inactiveGuns.Count == 0) return;
+
+        gunToActivate = Random.Range(0, inactiveGuns.Count);
+
+        inactiveGuns[gunToActivate].SetActive(true);
+
+        inactiveGuns.RemoveAt(gunToActivate);
     }
 }

@@ -100,7 +100,7 @@ MonoBehaviour:
   fireLocations:
   - {fileID: 280924307575116159}
   bulletSpeed: 5
-  fireDelay: 1
+  fireDelay: 2
   numberOfBullets: 5
 --- !u!1 &280924307575116144
 GameObject:
