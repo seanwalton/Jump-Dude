@@ -420,6 +420,7 @@ MonoBehaviour:
   wallLayers:
     serializedVersion: 2
     m_Bits: 0
+  maxVelocityMultiplier: 5
 --- !u!95 &2091239461676759647
 Animator:
   serializedVersion: 3

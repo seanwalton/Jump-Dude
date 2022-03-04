@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private UnityEvent OnJump;
     [SerializeField] private TriggerCount wallCheck;
     [SerializeField] private LayerMask wallLayers;
+    [SerializeField] private float maxVelocityMultiplier;
 
     private Rigidbody2D rb2;
     private Vector2? dirToWall;
@@ -139,8 +140,13 @@ public class PlayerController : MonoBehaviour
         if (wallJumping) return;
         velocity = rb2.velocity;
         velocity.x = Input.GetAxis("Horizontal") * runVelocity;
+
+        velocity.y = Mathf.Clamp(velocity.y, -1f * maxVelocityMultiplier * jumpVelocity,
+            maxVelocityMultiplier * jumpVelocity);
+
         rb2.velocity = velocity;
     }
+
 
     private void StartWallJump()
     {
