@@ -15,8 +15,11 @@ public class PlayerKiller : MonoBehaviour
         if (pm)
         {
             pm.Kill();
-            OnKill?.Invoke();
-            if (DisableOnKill) gameObject.SetActive(false);
+            OnKill?.Invoke();         
+            
         }
+
+        if (DisableOnKill) gameObject.SetActive(false);
+
     }
 }
