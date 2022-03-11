@@ -2515,6 +2515,7 @@ MonoBehaviour:
   - {fileID: 231402757}
   - {fileID: 599068434}
   - {fileID: 1015888829}
+  difficultyIncreaseRate: 10
 --- !u!1001 &1169497632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2816,7 +2817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 790204305224936510, guid: 8ba2f3b3ce348cb489179c50ca95ec8a, type: 3}
       propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: IncreaseDifficulty
+      value: IncreaseDifficultyViaProgression
       objectReference: {fileID: 0}
     - target: {fileID: 790204305224936510, guid: 8ba2f3b3ce348cb489179c50ca95ec8a, type: 3}
       propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
