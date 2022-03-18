@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6196692741055578528
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 790204305224936509}
+    m_Modifications:
+    - target: {fileID: 3931192881528647582, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931192881528647582, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931192881528647582, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931192881528647582, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931192881528647582, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931192881528647582, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931192881528647582, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931192881528647582, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931192881528647582, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931192881528647582, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931192881528647582, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999753703691351668, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+      propertyPath: m_Name
+      value: CollectEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+--- !u!198 &4587707564996382262 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7662272844225007510, guid: 06d3af6fdd5281b4b86a03289dd6e982, type: 3}
+  m_PrefabInstance: {fileID: 6196692741055578528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8119352135510977770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17,23 +79,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8816611140824613076, guid: 3aaded039884a264b8b6ac02557afdd0, type: 3}
       propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8816611140824613076, guid: 3aaded039884a264b8b6ac02557afdd0, type: 3}
       propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4587707564996382262}
     - target: {fileID: 8816611140824613076, guid: 3aaded039884a264b8b6ac02557afdd0, type: 3}
       propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8816611140824613076, guid: 3aaded039884a264b8b6ac02557afdd0, type: 3}
       propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnCollect
+      value: Emit
       objectReference: {fileID: 0}
     - target: {fileID: 8816611140824613076, guid: 3aaded039884a264b8b6ac02557afdd0, type: 3}
       propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ObjectiveBehaviour, Assembly-CSharp
+      value: UnityEngine.ParticleSystem, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816611140824613076, guid: 3aaded039884a264b8b6ac02557afdd0, type: 3}
+      propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8816611140824613076, guid: 3aaded039884a264b8b6ac02557afdd0, type: 3}
       propertyPath: OnCollect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -85,3 +151,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aaded039884a264b8b6ac02557afdd0, type: 3}
+--- !u!4 &790204305224936509 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8816611140824613079, guid: 3aaded039884a264b8b6ac02557afdd0, type: 3}
+  m_PrefabInstance: {fileID: 8119352135510977770}
+  m_PrefabAsset: {fileID: 0}
