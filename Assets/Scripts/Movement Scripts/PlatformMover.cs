@@ -71,9 +71,9 @@ public class PlatformMover : MonoBehaviour
         ySequence.SetLoops(-1, LoopType.Yoyo);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        CalculateVelocity(Time.deltaTime);
+        CalculateVelocity(Time.fixedDeltaTime);
     }
 
 

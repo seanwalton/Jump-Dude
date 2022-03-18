@@ -13,6 +13,8 @@ public class TriggerCount : MonoBehaviour
     private Vector2 posVector;
 
     public int NumberOfObjects => Colliders.Count;
+    public List<GameObject> ObjectsInTrigger => Colliders;
+
 
     public Vector2? GetDirectionToColliders(Transform tr)
     {

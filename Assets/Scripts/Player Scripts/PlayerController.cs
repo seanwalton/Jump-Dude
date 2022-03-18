@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     private float timeLeftGround;
     private float timeHitJump;
 
+    private Vector2 platformVelocity = new Vector2();
+    private PlatformMover platMover;
 
     private void Awake()
     {
@@ -165,9 +167,30 @@ public class PlayerController : MonoBehaviour
         velocity.y = Mathf.Clamp(velocity.y, -1f * maxVelocityMultiplier * jumpVelocity,
             maxVelocityMultiplier * jumpVelocity);
 
+        CalculatePlatformVelocity();
+        velocity.x += platformVelocity.x;
+        
+
         rb2.velocity = velocity;
     }
 
+
+    private void CalculatePlatformVelocity()
+    {
+        platformVelocity.Set(0f, 0f);
+
+        for (int i = 0; i < groundCheck.NumberOfObjects; i++)
+        {
+            platMover = groundCheck.ObjectsInTrigger[i].GetComponent<PlatformMover>();
+
+            if (platMover)
+            {
+                platformVelocity.x += platMover.velocity.x;
+                platformVelocity.y += platMover.velocity.y;
+            }
+
+        }
+    }
 
     private void StartWallJump()
     {
