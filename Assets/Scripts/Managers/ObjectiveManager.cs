@@ -28,13 +28,16 @@ public class ObjectiveManager : MonoBehaviour
         while (lastLocation == newLocation)
         {
             newLocation = UnityEngine.Random.Range(0, platforms.Length);
+            
         }
 
+        
         pos = platforms[newLocation].position;
         pos.y += heightAbovePlatform;
         objective.position = pos;
         numberOfCollections++;
         OnScoreChange?.Invoke(numberOfCollections);
+        lastLocation = newLocation;
     }
 
 }
