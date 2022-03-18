@@ -422,6 +422,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   maxVelocityMultiplier: 3
+  reactionTime: 0.25
 --- !u!95 &2091239461676759647
 Animator:
   serializedVersion: 3

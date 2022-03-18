@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TriggerCount wallCheck;
     [SerializeField] private LayerMask wallLayers;
     [SerializeField] private float maxVelocityMultiplier;
+    [SerializeField] private float reactionTime;
 
     private Rigidbody2D rb2;
     private Vector2? dirToWall;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private Transform tr;
     private bool wallJumping;
     private float wallJumpTime;
+    private float timeLeftGround;
 
 
     private void Awake()
@@ -40,7 +42,7 @@ public class PlayerController : MonoBehaviour
         rb2 = GetComponent<Rigidbody2D>();
         velocity = new Vector2();
         tr = transform;
-        wallJumping = false;
+        wallJumping = false;       
         CalculateConstants();
     }
 
@@ -71,7 +73,9 @@ public class PlayerController : MonoBehaviour
     public void LeftGround()
     {
         onGround = false;
+        timeLeftGround = Time.time;
         numberJumpsSinceGrounded = 1;
+        
     }
 
     private void CalculateConstants()
@@ -107,7 +111,16 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
 
-        if ((!onGround) && (numberJumpsSinceGrounded >= numberJumps)) return;
+        if (!onGround)
+        {
+            //First jump
+            if ((Time.time - timeLeftGround) < reactionTime)
+            {
+                numberJumpsSinceGrounded = 0;
+            }
+            //Second jump
+            if (numberJumpsSinceGrounded >= numberJumps) return;
+        }
 
         numberJumpsSinceGrounded++;
 
