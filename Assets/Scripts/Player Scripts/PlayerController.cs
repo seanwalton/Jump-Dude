@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private bool wallJumping;
     private float wallJumpTime;
     private float timeLeftGround;
+    private float timeHitJump;
 
 
     private void Awake()
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
     {
         onGround = (groundCheck.NumberOfObjects > 0);
         onWall = (wallCheck.NumberOfObjects > 0);
+        timeHitJump = 0f;
     }
 
     public void HitWall()
@@ -100,6 +102,11 @@ public class PlayerController : MonoBehaviour
         Move();
         if (Input.GetKeyDown(KeyCode.W))
         {
+            timeHitJump = Time.time;         
+        }
+
+        if ((Time.time - timeHitJump) < reactionTime)
+        {
             Jump();
         }
     }
@@ -146,6 +153,7 @@ public class PlayerController : MonoBehaviour
         }
         
         OnJump?.Invoke();
+        timeHitJump = 0f;
     }
 
     private void Move()
