@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     {
         onGround = (groundCheck.NumberOfObjects > 0);
         onWall = (wallCheck.NumberOfObjects > 0);
-        timeHitJump = 0f;
+        timeHitJump = -10f*reactionTime;
     }
 
     public void HitWall()
