@@ -5085,6 +5085,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3317541932636908274, guid: d205242fc8d2483438a1270092aa0428, type: 3}
+      propertyPath: OnFirstEnterTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3317541933055989321, guid: d205242fc8d2483438a1270092aa0428, type: 3}
       propertyPath: m_Name
       value: Player

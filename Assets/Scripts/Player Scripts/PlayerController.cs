@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask wallLayers;
     [SerializeField] private float maxVelocityMultiplier;
     [SerializeField] private float reactionTime;
+    [SerializeField] private UnityEvent<float> OnContact;
 
     private Rigidbody2D rb2;
     private Vector2? dirToWall;
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private float wallJumpTime;
     private float timeLeftGround;
     private float timeHitJump;
+    private Vector2 lastSpeed = new Vector2();
 
     private Vector2 platformVelocity = new Vector2();
     private PlatformMover platMover;
@@ -60,6 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         onWall = true;
         numberJumpsSinceGrounded = 0;
+        OnContact?.Invoke(lastSpeed.x);
     }
 
     public void LeftWall()
@@ -72,6 +75,7 @@ public class PlayerController : MonoBehaviour
     {
         onGround = true;
         numberJumpsSinceGrounded = 0;
+        OnContact?.Invoke(lastSpeed.y);
     }
 
     public void LeftGround()
@@ -116,6 +120,9 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         CheckAndSetGravity();
+        
+        lastSpeed.x = Mathf.Abs(rb2.velocity.x) / runVelocity;
+        lastSpeed.y = Mathf.Abs(rb2.velocity.y) / (maxVelocityMultiplier * jumpVelocity);
     }
     private void Jump()
     {
